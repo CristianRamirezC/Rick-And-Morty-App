@@ -5,4 +5,6 @@
     <string name="characters">Characters</string>
     <string name="episodes">Episodes</string>
     <string name="blank">Blank</string>
+    <string name="character_image">Character Image</string>
+    <string name="character_status">Character Status</string>
 </resources>
