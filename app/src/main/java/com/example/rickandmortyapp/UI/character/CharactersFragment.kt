@@ -5,9 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.UI.character.adapter.CharacterAdapter
+import com.example.rickandmortyapp.databinding.CharacterViewBinding
+import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
+import com.example.rickandmortyapp.model.CharacterProvider
 
 class CharactersFragment : Fragment() {
+
+    private lateinit var binding: FragmentCharactersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +25,15 @@ class CharactersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_characters, container, false)
+        binding = FragmentCharactersBinding.inflate(layoutInflater, container, false)
+        initRecyclerView()
+        return binding.root
+
+    }
+
+    private fun initRecyclerView() {
+        binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rvCharactersRecyclerView.adapter =
+            CharacterAdapter(CharacterProvider.characterList)
     }
 }

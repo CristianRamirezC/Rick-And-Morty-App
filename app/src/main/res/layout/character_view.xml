@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-    android:layout_height="200dp">
+    android:layout_height="200dp"
+    android:layout_marginBottom="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,11 +23,13 @@
                 android:background="@color/black"
                 app:layout_constraintTop_toTopOf="parent" />
             <ImageView
+                android:id="@+id/ivCharacterStatus"
                 android:layout_margin="10dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_gravity="top|right"
-                android:background="@drawable/character_status_circle" />
+                android:layout_gravity="top|end"
+                android:background="@drawable/character_status_circle"
+                android:backgroundTint="@color/teal_700"/>
         </FrameLayout>
 
         <TextView
