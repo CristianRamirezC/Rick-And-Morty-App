@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/layout/fragment_characters.xml" value="0.5451282051282051" />
+        <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/layout/fragment_blank.xml" value="0.5583333333333333" />
+        <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/layout/fragment_characters.xml" value="0.5" />
+        <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/layout/fragment_episodes.xml" value="0.5" />
         <entry key="..\:/Users/Crist/Documentos/AndroidStudioProjects/Rick-And-Morty-App/app/src/main/res/menu/bottom_nav.xml" value="0.33" />
       </map>
     </option>

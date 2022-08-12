@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CharactersFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginTopGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/main_screen_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginStartGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/main_screen_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginEndGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/main_screen_margin" />
+
+    <SearchView
+        android:id="@+id/svSearchBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintStart_toStartOf="@+id/marginStartGuide"
+        app:layout_constraintTop_toBottomOf="@+id/marginTopGuide"
+        app:queryHint="Character name" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

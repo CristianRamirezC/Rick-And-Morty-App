@@ -23,7 +23,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpViewLogic() {
+        setUpBottomNavBar()
+    }
 
+    private fun setUpBottomNavBar() {
         val navHostFragment: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController: NavController = navHostFragment.findNavController()
