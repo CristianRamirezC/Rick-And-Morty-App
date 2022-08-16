@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.UI.character.adapter.CharacterAdapter
 import com.example.rickandmortyapp.UI.character.util.SpacingItemDecoration
-import com.example.rickandmortyapp.databinding.CharacterViewBinding
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
+import com.example.rickandmortyapp.model.Character
 import com.example.rickandmortyapp.model.CharacterProvider
 
 class CharactersFragment : Fragment() {
@@ -39,5 +37,9 @@ class CharactersFragment : Fragment() {
             CharacterAdapter(CharacterProvider.characterList)
 
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
+    }
+
+    private fun onItemSelected(character: Character) {
+
     }
 }
