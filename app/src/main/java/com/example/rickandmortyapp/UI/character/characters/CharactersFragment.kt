@@ -1,15 +1,17 @@
-package com.example.rickandmortyapp.UI.character
+package com.example.rickandmortyapp.UI.character.characters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.character.adapter.CharacterAdapter
-import com.example.rickandmortyapp.UI.character.util.SpacingItemDecoration
+import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.UI.character.characters.adapter.CharacterAdapter
+import com.example.rickandmortyapp.UI.character.characters.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
-import com.example.rickandmortyapp.model.Character
 import com.example.rickandmortyapp.model.CharacterProvider
 
 class CharactersFragment : Fragment() {
@@ -25,7 +27,8 @@ class CharactersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCharactersBinding.inflate(layoutInflater, container, false)
+        binding =
+            FragmentCharactersBinding.inflate(inflater, container, false)
         initRecyclerView()
         return binding.root
 
@@ -37,9 +40,5 @@ class CharactersFragment : Fragment() {
             CharacterAdapter(CharacterProvider.characterList)
 
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
-    }
-
-    private fun onItemSelected(character: Character) {
-
     }
 }

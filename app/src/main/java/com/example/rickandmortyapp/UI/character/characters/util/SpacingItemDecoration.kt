@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.character.util
+package com.example.rickandmortyapp.UI.character.characters.util
 
 import android.graphics.Rect
 import android.view.View
