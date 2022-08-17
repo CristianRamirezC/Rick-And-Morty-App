@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.character.characters
+package com.example.rickandmortyapp.UI.characters.characters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,19 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.character.characters.adapter.CharacterAdapter
-import com.example.rickandmortyapp.UI.character.characters.adapter.util.SpacingItemDecoration
+import com.example.rickandmortyapp.UI.characters.characters.adapter.CharacterAdapter
+import com.example.rickandmortyapp.UI.characters.characters.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
-import com.example.rickandmortyapp.model.Character
-import com.example.rickandmortyapp.model.CharacterProvider
+import com.example.rickandmortyapp.model.characters.Character
+import com.example.rickandmortyapp.model.characters.CharacterProvider
 
 class CharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentCharactersBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +26,6 @@ class CharactersFragment : Fragment() {
             FragmentCharactersBinding.inflate(inflater, container, false)
         initRecyclerView()
         return binding.root
-
     }
 
     private fun initRecyclerView() {
@@ -39,7 +34,6 @@ class CharactersFragment : Fragment() {
             CharacterAdapter(CharacterProvider.characterList) { character ->
                 onItemSelected(character)
             }
-
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
     }
 

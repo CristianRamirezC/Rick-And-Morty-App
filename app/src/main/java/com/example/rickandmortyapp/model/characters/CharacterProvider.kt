@@ -1,4 +1,6 @@
-package com.example.rickandmortyapp.model
+package com.example.rickandmortyapp.model.characters
+
+import com.example.rickandmortyapp.model.characters.Character
 
 class CharacterProvider {
     companion object {

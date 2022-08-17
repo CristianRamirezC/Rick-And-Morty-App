@@ -1,13 +1,11 @@
-package com.example.rickandmortyapp.UI.character.characterReview
+package com.example.rickandmortyapp.UI.characters.characterReview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.FragmentCharacterReviewBinding
 
 class CharacterReviewFragment : Fragment() {

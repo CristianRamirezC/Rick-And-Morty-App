@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UI.EpisodesFragment"
-    android:background="@color/purple_700">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="aber si funciona" />
+        android:background="@color/white"
+        tools:context=".UI.episodes.EpisodesFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginTopGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/main_screen_margin_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginStartGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/main_screen_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginEndGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/main_screen_margin" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svSearchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+            app:layout_constraintTop_toBottomOf="@+id/marginTopGuide" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+            app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+            app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

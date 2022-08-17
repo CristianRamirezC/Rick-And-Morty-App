@@ -1,15 +1,12 @@
-package com.example.rickandmortyapp.UI.character.characters.adapter
+package com.example.rickandmortyapp.UI.characters.characters.adapter
 
-import android.content.res.ColorStateList
-import android.content.res.Resources
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.CharacterViewBinding
-import com.example.rickandmortyapp.model.Character
+import com.example.rickandmortyapp.model.characters.Character
 
 class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
 
