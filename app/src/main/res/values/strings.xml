@@ -7,4 +7,8 @@
     <string name="blank">Blank</string>
     <string name="character_image">Character Image</string>
     <string name="character_status">Character Status</string>
+    <string name="status">Status</string>
+    <string name="species">Species</string>
+    <string name="gender">Gender</string>
+    <string name="origin">Origin</string>
 </resources>

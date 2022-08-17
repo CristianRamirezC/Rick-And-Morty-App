@@ -15,13 +15,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/ivCharacterReviewImage"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/characters_review_image_height"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/black" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCharacterReviewImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/character_review_image_background"
+                tools:background="@color/character_review_image_background" />
+
+            <TextView
+                android:id="@+id/tvCharacterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/characters_review_title_size"
+                tools:text="Name" />
+        </FrameLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/marginTop"
@@ -55,17 +72,20 @@
             android:id="@+id/tvCharacterStatusTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/status"
             android:textColor="@color/character_review_titles"
-            android:textSize="20sp"
+            android:textSize="@dimen/characters_review_title_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
-            app:layout_constraintTop_toBottomOf="@+id/marginTop"
-            tools:text="Status" />
+            app:layout_constraintTop_toBottomOf="@+id/marginTop" />
 
         <TextView
             android:id="@+id/tvCharacterStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:textColor="@color/black"
+            android:textSize="@dimen/characters_review_text_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
             app:layout_constraintTop_toBottomOf="@+id/tvCharacterStatusTitle"
             tools:text="Alive" />
@@ -74,17 +94,21 @@
             android:id="@+id/tvCharacterSpeciesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/species"
             android:textColor="@color/character_review_titles"
-            android:textSize="20sp"
+            android:textSize="@dimen/characters_review_title_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterStatus"
-            tools:text="Species" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterStatus" />
 
         <TextView
             android:id="@+id/tvCharacterSpecies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:textColor="@color/black"
+            android:textSize="@dimen/characters_review_text_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
             app:layout_constraintTop_toBottomOf="@+id/tvCharacterSpeciesTitle"
             tools:text="Human" />
@@ -93,17 +117,21 @@
             android:id="@+id/tvCharacterGenderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/gender"
             android:textColor="@color/character_review_titles"
-            android:textSize="20sp"
+            android:textSize="@dimen/characters_review_title_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterSpecies"
-            tools:text="Gender" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterSpecies" />
 
         <TextView
             android:id="@+id/tvCharacterGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:textColor="@color/black"
+            android:textSize="@dimen/characters_review_text_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
             app:layout_constraintTop_toBottomOf="@+id/tvCharacterGenderTitle"
             tools:text="Male" />
@@ -112,17 +140,21 @@
             android:id="@+id/tvCharacterOriginTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/origin"
             android:textColor="@color/character_review_titles"
-            android:textSize="20sp"
+            android:textSize="@dimen/characters_review_title_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterGender"
-            tools:text="Origin" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterGender" />
 
         <TextView
             android:id="@+id/tvCharacterOrigin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:textColor="@color/black"
+            android:textSize="@dimen/characters_review_text_size"
             app:layout_constraintStart_toEndOf="@+id/marginStart"
             app:layout_constraintTop_toBottomOf="@+id/tvCharacterOriginTitle"
             tools:text="Earth" />

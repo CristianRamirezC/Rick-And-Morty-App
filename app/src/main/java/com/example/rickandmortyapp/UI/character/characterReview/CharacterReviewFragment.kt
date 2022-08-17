@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.FragmentCharacterReviewBinding
 
@@ -24,9 +25,22 @@ class CharacterReviewFragment : Fragment() {
         // Inflate the layout for this fragment
         binding =
             FragmentCharacterReviewBinding.inflate(inflater, container, false)
+        setUpViews()
 
-        binding.characterReviewImageHeight =
-            resources.getDimension(R.dimen.characters_review_image_height)
         return binding.root
+    }
+
+    private fun setUpViews() {
+        val args = CharacterReviewFragmentArgs.fromBundle(requireArguments())
+        binding.apply {
+            tvCharacterName.text = args.characterName
+            tvCharacterStatus.text = args.characterStatus
+            tvCharacterSpecies.text = args.characterSpecies
+            tvCharacterGender.text = args.characterGender
+            tvCharacterOrigin.text = args.characterOrigin
+            Glide.with(requireActivity())
+                .load(args.characterImage)
+                .into(binding.ivCharacterReviewImage)
+        }
     }
 }

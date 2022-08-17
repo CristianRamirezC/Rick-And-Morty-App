@@ -40,13 +40,22 @@ class CharactersFragment : Fragment() {
         binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvCharactersRecyclerView.adapter =
             CharacterAdapter(CharacterProvider.characterList) { character ->
-
+                onItemSelected(character)
             }
 
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
     }
 
     private fun onItemSelected(character: Character) {
-        findNavController().navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment())
+        findNavController().navigate(
+            CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment(
+                character.characterStatus,
+                character.characterSpecies,
+                character.characterGender,
+                character.characterOrigin,
+                character.characterName,
+                character.characterImage
+            )
+        )
     }
 }

@@ -17,7 +17,7 @@ class CharacterProvider {
                 characterName = "Morty Smith",
                 characterStatus = "Alive",
                 characterGender = "Male",
-                characterOrigin = "Earth (C-137)",
+                characterOrigin = "unknown",
                 characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
             ),
@@ -25,8 +25,8 @@ class CharacterProvider {
                 characterID = 3,
                 characterName = "Summer Smith",
                 characterStatus = "Alive",
-                characterGender = "Male",
-                characterOrigin = "Earth (C-137)",
+                characterGender = "Female",
+                characterOrigin = "Earth (Replacement Dimension)",
                 characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
             ),
@@ -34,8 +34,8 @@ class CharacterProvider {
                 characterID = 4,
                 characterName = "Beth Smith",
                 characterStatus = "Alive",
-                characterGender = "Male",
-                characterOrigin = "Earth (C-137)",
+                characterGender = "Female",
+                characterOrigin = "Earth (Replacement Dimension)",
                 characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
             ),
@@ -44,16 +44,16 @@ class CharacterProvider {
                 characterName = "Jerry Smith",
                 characterStatus = "Alive",
                 characterGender = "Male",
-                characterOrigin = "Earth (C-137)",
+                characterOrigin = "Earth (Replacement Dimension)",
                 characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
             ),
             Character(
                 characterID = 6,
-                characterName = "Gotron",
+                characterName = "Abadango Cluster Princess",
                 characterStatus = "Alive",
-                characterGender = "Male",
-                characterOrigin = "Earth (C-137)",
+                characterGender = "Female",
+                characterOrigin = "Abadango",
                 characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/6.jpeg"
             ),

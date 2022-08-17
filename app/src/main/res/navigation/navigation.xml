@@ -41,5 +41,11 @@
         <argument
             android:name="characterOrigin"
             app:argType="string" />
+        <argument
+            android:name="characterName"
+            app:argType="string" />
+        <argument
+            android:name="characterImage"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="character_review_titles">#cf6840</color>
+    <color name="character_review_image_background">#98999b</color>
 </resources>
