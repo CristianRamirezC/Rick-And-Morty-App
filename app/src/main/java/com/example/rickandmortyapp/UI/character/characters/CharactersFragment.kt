@@ -5,13 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.UI.character.characters.adapter.CharacterAdapter
-import com.example.rickandmortyapp.UI.character.characters.util.SpacingItemDecoration
+import com.example.rickandmortyapp.UI.character.characters.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
 import com.example.rickandmortyapp.model.Character
 import com.example.rickandmortyapp.model.CharacterProvider

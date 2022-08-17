@@ -15,7 +15,7 @@ class CharacterProvider {
             Character(
                 characterID = 2,
                 characterName = "Morty Smith",
-                characterStatus = "Alive",
+                characterStatus = "Dead",
                 characterGender = "Male",
                 characterOrigin = "unknown",
                 characterSpecies = "Human",
@@ -24,7 +24,7 @@ class CharacterProvider {
             Character(
                 characterID = 3,
                 characterName = "Summer Smith",
-                characterStatus = "Alive",
+                characterStatus = "Unknown",
                 characterGender = "Female",
                 characterOrigin = "Earth (Replacement Dimension)",
                 characterSpecies = "Human",
