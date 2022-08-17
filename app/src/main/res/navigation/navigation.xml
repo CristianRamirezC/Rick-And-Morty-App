@@ -28,5 +28,18 @@
         android:id="@+id/characterReviewFragment"
         android:name="com.example.rickandmortyapp.UI.character.characterReview.CharacterReviewFragment"
         android:label="fragment_character_review"
-        tools:layout="@layout/fragment_character_review" />
+        tools:layout="@layout/fragment_character_review" >
+        <argument
+            android:name="characterStatus"
+            app:argType="string" />
+        <argument
+            android:name="characterSpecies"
+            app:argType="string" />
+        <argument
+            android:name="characterGender"
+            app:argType="string" />
+        <argument
+            android:name="characterOrigin"
+            app:argType="string" />
+    </fragment>
 </navigation>
