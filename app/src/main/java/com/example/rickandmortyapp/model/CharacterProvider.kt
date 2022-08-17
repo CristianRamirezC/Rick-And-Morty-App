@@ -4,75 +4,111 @@ class CharacterProvider {
     companion object {
         val characterList = listOf<Character>(
             Character(
-                characterID = 821,
+                characterID = 1,
                 characterName = "Rick Sanchez",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 2,
                 characterName = "Morty Smith",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 3,
                 characterName = "Summer Smith",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 4,
                 characterName = "Beth Smith",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 5,
                 characterName = "Jerry Smith",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 6,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/6.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 7,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/7.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 8,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 9,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/9.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 10,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/10.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 11,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/11.jpeg"
             ),
             Character(
-                characterID = 821,
+                characterID = 12,
                 characterName = "Gotron",
-                characterStatus = "unknown",
+                characterStatus = "Alive",
+                characterGender = "Male",
+                characterOrigin = "Earth (C-137)",
+                characterSpecies = "Human",
                 characterImage = "https://rickandmortyapi.com/api/character/avatar/12.jpeg"
             )
         )

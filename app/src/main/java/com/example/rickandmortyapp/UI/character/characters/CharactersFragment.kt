@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.UI.character.characters.adapter.CharacterAdapter
 import com.example.rickandmortyapp.UI.character.characters.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
+import com.example.rickandmortyapp.model.Character
 import com.example.rickandmortyapp.model.CharacterProvider
 
 class CharactersFragment : Fragment() {
@@ -37,8 +39,14 @@ class CharactersFragment : Fragment() {
     private fun initRecyclerView() {
         binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvCharactersRecyclerView.adapter =
-            CharacterAdapter(CharacterProvider.characterList)
+            CharacterAdapter(CharacterProvider.characterList) { character ->
+
+            }
 
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
+    }
+
+    private fun onItemSelected(character: Character) {
+        findNavController().navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment())
     }
 }

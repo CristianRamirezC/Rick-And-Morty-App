@@ -11,14 +11,13 @@ import com.example.rickandmortyapp.model.Character
 class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = CharacterViewBinding.bind(view)
-    fun render(character: Character) {
+    fun render(character: Character, onClickListener: (Character) -> Unit) {
         binding.tvCharacterName.text = character.characterName
         Glide.with(view.context)
             .load(character.characterImage)
             .into(binding.ivCharacterImage)
-        itemView.setOnClickListener { view ->
-            view.findNavController()
-                .navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment())
+        itemView.setOnClickListener {
+            onClickListener(character)
         }
     }
 }

@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.model.Character
 
-class CharacterAdapter(private val characterList: List<Character>): RecyclerView.Adapter<CharacterViewHolder>() {
+class CharacterAdapter(
+    private val characterList: List<Character>,
+    private val onClickListener: (Character) -> Unit
+) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -17,7 +20,7 @@ class CharacterAdapter(private val characterList: List<Character>): RecyclerView
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val item = characterList[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
 
     override fun getItemCount(): Int {
