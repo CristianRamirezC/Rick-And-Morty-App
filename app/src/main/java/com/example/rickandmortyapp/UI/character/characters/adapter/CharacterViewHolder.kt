@@ -1,10 +1,8 @@
 package com.example.rickandmortyapp.UI.character.characters.adapter
 
 import android.view.View
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.rickandmortyapp.UI.character.characters.CharactersFragmentDirections
 import com.example.rickandmortyapp.databinding.CharacterViewBinding
 import com.example.rickandmortyapp.model.Character
 
