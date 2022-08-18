@@ -11,6 +11,6 @@
     <color name="character_Status_unknown">#0000ff</color>
     <color name="character_status_dead">#ff0000</color>
     <color name="character_review_titles">#cf6840</color>
-    <color name="character_review_image_background">#98999b</color>
+    <color name="character_review_image_background">#F0F0F0</color>
     <color name="episodes_fragment_item_background">#d2d2cf</color>
 </resources>
