@@ -27,7 +27,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@color/character_review_image_background"
-                tools:background="@color/character_review_image_background" />
+                tools:background="@color/character_review_image_background"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/tvCharacterName"
@@ -35,9 +36,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
                 android:layout_marginStart="15dp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/characters_review_title_size"
-                tools:text="Name" />
+                android:textSize="40sp"
+                tools:text="Name"
+                tools:targetApi="p"
+                android:textStyle="italic"
+                android:typeface="serif"/>
         </FrameLayout>
 
         <androidx.constraintlayout.widget.Guideline
