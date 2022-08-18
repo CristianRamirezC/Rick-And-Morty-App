@@ -1,8 +1,10 @@
 package com.example.rickandmortyapp.model.characters
 
+import com.google.gson.annotations.SerializedName
+
 data class Info(
-    @Se var count: Int,
-    var pages: Int,
-    var next: String?,
-    var prev: String?
+    @SerializedName("count") var totalCharacters: Int,
+    @SerializedName("pages") var numberOfPages: Int,
+    @SerializedName("next") var nextPage: String?,
+    @SerializedName("prev") var previousPage: String?
 )

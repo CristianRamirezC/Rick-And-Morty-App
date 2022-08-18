@@ -35,7 +35,7 @@ class CharacterReviewFragment : Fragment() {
             tvCharacterStatus.text = args.characterStatus
             tvCharacterSpecies.text = args.characterSpecies
             tvCharacterGender.text = args.characterGender
-            tvCharacterOrigin.text = args.characterOrigin
+            tvCharacterOrigin.text = args.characterOrigin.locationName
             Glide.with(requireActivity())
                 .load(args.characterImage)
                 .into(binding.ivCharacterReviewImage)

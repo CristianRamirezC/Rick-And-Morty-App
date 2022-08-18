@@ -7,11 +7,12 @@ import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.CharacterItemViewBinding
 import com.example.rickandmortyapp.model.characters.Character
+import com.example.rickandmortyapp.model.characters.Results
 
 class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = CharacterItemViewBinding.bind(view)
-    fun render(character: Character, onClickListener: (Character) -> Unit) {
+    fun render(character: Results, onClickListener: (Results) -> Unit) {
         binding.tvCharacterName.text = character.characterName
         Glide.with(view.context)
             .load(character.characterImage)

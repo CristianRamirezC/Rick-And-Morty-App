@@ -2,6 +2,7 @@ package com.example.rickandmortyapp.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -11,6 +12,14 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.ActivityMainBinding
+import com.example.rickandmortyapp.model.characters.APIService
+import com.example.rickandmortyapp.model.characters.CharactersResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpViewLogic()
-
     }
 
     private fun setUpViewLogic() {

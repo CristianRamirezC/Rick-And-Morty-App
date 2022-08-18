@@ -40,7 +40,7 @@
             app:argType="string" />
         <argument
             android:name="characterOrigin"
-            app:argType="string" />
+            app:argType="com.example.rickandmortyapp.model.characters.Location" />
         <argument
             android:name="characterName"
             app:argType="string" />

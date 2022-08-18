@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.model.characters.Character
+import com.example.rickandmortyapp.model.characters.Results
 
 class CharacterAdapter(
-    private val characterList: List<Character>,
-    private val onClickListener: (Character) -> Unit
+    private val characterList: List<Results>,
+    private val onClickListener: (Results) -> Unit
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
