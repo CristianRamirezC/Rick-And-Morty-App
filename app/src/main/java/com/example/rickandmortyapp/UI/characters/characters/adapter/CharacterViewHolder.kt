@@ -5,12 +5,12 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
-import com.example.rickandmortyapp.databinding.CharacterViewBinding
+import com.example.rickandmortyapp.databinding.CharacterItemViewBinding
 import com.example.rickandmortyapp.model.characters.Character
 
 class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
 
-    private val binding = CharacterViewBinding.bind(view)
+    private val binding = CharacterItemViewBinding.bind(view)
     fun render(character: Character, onClickListener: (Character) -> Unit) {
         binding.tvCharacterName.text = character.characterName
         Glide.with(view.context)
