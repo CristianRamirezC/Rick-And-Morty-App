@@ -2,7 +2,7 @@ package com.example.rickandmortyapp.model.characters
 
 import com.google.gson.annotations.SerializedName
 
-data class Info(
+data class CharactersInfo(
     @SerializedName("count") var totalCharacters: Int,
     @SerializedName("pages") var numberOfPages: Int,
     @SerializedName("next") var nextPage: String?,

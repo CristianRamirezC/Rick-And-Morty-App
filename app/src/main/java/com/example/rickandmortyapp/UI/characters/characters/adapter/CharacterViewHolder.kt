@@ -7,12 +7,11 @@ import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.CharacterItemViewBinding
 import com.example.rickandmortyapp.model.characters.Character
-import com.example.rickandmortyapp.model.characters.Results
 
 class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = CharacterItemViewBinding.bind(view)
-    fun render(character: Results, onClickListener: (Results) -> Unit) {
+    fun render(character: Character, onClickListener: (Character) -> Unit) {
         binding.tvCharacterName.text = character.characterName
         Glide.with(view.context)
             .load(character.characterImage)
@@ -25,20 +24,20 @@ class CharacterViewHolder(private var view: View) : RecyclerView.ViewHolder(view
     }
 
     private fun renderCharacterStatus(status: String) {
-        when (status) {
-            "Dead" -> binding.ivCharacterStatus.background.setTint(
+        when (status.lowercase()) {
+            "dead" -> binding.ivCharacterStatus.background.setTint(
                 ContextCompat.getColor(
                     view.context,
                     R.color.character_status_dead
                 )
             )
-            "Alive" -> binding.ivCharacterStatus.background.setTint(
+            "alive" -> binding.ivCharacterStatus.background.setTint(
                 ContextCompat.getColor(
                     view.context,
                     R.color.character_status_alive
                 )
             )
-            "Unknown" -> binding.ivCharacterStatus.background.setTint(
+            "unknown" -> binding.ivCharacterStatus.background.setTint(
                 ContextCompat.getColor(
                     view.context,
                     R.color.character_Status_unknown

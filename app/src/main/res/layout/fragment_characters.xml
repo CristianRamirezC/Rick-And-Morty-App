@@ -51,5 +51,14 @@
             app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
             app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
 
+        <ProgressBar
+            android:id="@+id/pgRecyclerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+            app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+            app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

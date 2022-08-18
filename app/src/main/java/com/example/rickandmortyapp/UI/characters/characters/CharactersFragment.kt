@@ -1,12 +1,12 @@
 package com.example.rickandmortyapp.UI.characters.characters
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.UI.characters.characters.adapter.CharacterAdapter
@@ -23,7 +23,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentCharactersBinding
-    private var characterResults: CharactersResponse = CharactersResponse(null, ArrayList())
+    private var characterResults: CharactersResponse = CharactersResponse(
+        null, listOf()
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,21 +34,20 @@ class CharactersFragment : Fragment() {
         // Inflate the layout for this fragment
         binding =
             FragmentCharactersBinding.inflate(inflater, container, false)
-        initRecyclerView()
-        searchCharacters()
+        getCharacters()
         return binding.root
     }
 
     private fun initRecyclerView() {
         binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvCharactersRecyclerView.adapter =
-            CharacterAdapter(characterResults.responseResults) { character ->
+            CharacterAdapter(characterResults.responseCharacters) { character ->
                 onItemSelected(character)
             }
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
     }
 
-    private fun onItemSelected(character: Results) {
+    private fun onItemSelected(character: Character) {
         findNavController().navigate(
             CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment(
                 character.characterStatus,
@@ -66,16 +67,16 @@ class CharactersFragment : Fragment() {
             .build()
     }
 
-    private fun searchCharacters() {
+    private fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
             val call: Response<CharactersResponse> =
-                getRetrofit().create(APIService::class.java).getCharacters()
+                getRetrofit().create(APICharactersService::class.java).getCharacters()
             val charactersBody = call.body()
             activity?.runOnUiThread {
                 if (call.isSuccessful) {
-                    val characters = charactersBody?.responseResults ?: emptyList()
-                    characterResults.responseResults = characters
-                    binding.rvCharactersRecyclerView.adapter?.notifyDataSetChanged()
+                    characterResults = charactersBody ?: CharactersResponse(null, ArrayList())
+                    binding.pgRecyclerProgressBar.isVisible = false
+                    initRecyclerView()
                 } else {
                     showError()
                 }
@@ -84,6 +85,6 @@ class CharactersFragment : Fragment() {
     }
 
     private fun showError() {
-        Toast.makeText(requireActivity(), "An error has ocurred!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireActivity(), "An error has occurred!", Toast.LENGTH_SHORT).show()
     }
 }

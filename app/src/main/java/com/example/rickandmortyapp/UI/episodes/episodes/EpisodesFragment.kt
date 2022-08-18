@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.UI.episodes.episodes.adapter.EpisodeAdapter
 import com.example.rickandmortyapp.databinding.FragmentEpisodesBinding
-import com.example.rickandmortyapp.model.episodes.EpisodeProvider
 
 class EpisodesFragment : Fragment() {
 
