@@ -13,11 +13,18 @@ import com.example.rickandmortyapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.navHostFragment) as NavHostFragment
+        navController = navHostFragment.findNavController()
         setUpViewLogic()
     }
 
@@ -27,23 +34,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUpButton() {
-        val navHostFragment: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.navHostFragment) as NavHostFragment
-        val navController: NavController = navHostFragment.findNavController()
+
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     private fun setUpBottomNavBar() {
-        val navHostFragment: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.navHostFragment) as NavHostFragment
-        val navController: NavController = navHostFragment.findNavController()
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navHostFragment: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.navHostFragment) as NavHostFragment
-        val navController: NavController = navHostFragment.findNavController()
         return navController.navigateUp()
     }
 }

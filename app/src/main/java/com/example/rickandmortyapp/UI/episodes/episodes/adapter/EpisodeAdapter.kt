@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.model.episodes.Episode
 
 class EpisodeAdapter(
     private val episodeList: List<Episode>

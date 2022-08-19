@@ -75,7 +75,7 @@ class CharactersFragment : Fragment() {
             activity?.runOnUiThread {
                 if (call.isSuccessful) {
                     characterResults = charactersBody ?: CharactersResponse(null, ArrayList())
-                    binding.pgRecyclerProgressBar.isVisible = false
+                    binding.pbRecyclerProgressBar.isVisible = false
                     initRecyclerView()
                 } else {
                     showError()

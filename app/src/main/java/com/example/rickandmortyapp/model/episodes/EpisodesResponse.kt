@@ -5,6 +5,6 @@ import com.google.gson.annotations.SerializedName
 data class EpisodesResponse(
 
     @SerializedName("info") var info: EpisodesInfo? = EpisodesInfo(),
-    @SerializedName("results") var results: List<Episode> = listOf<Episode>()
+    @SerializedName("results") var episodesList: List<Episode> = listOf<Episode>()
 
 )
