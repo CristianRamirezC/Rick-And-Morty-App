@@ -13,4 +13,5 @@
     <color name="character_review_titles">#cf6840</color>
     <color name="character_review_image_background">#F0F0F0</color>
     <color name="episodes_fragment_item_background">#d2d2cf</color>
+    <color name="nav_icon_inactive">#AAAAAA</color>
 </resources>

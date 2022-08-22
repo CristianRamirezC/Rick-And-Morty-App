@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpBottomNavBar() {
         binding.bottomNavigationView.setupWithNavController(navController)
+        binding.bottomNavigationView.elevation = 40f
     }
 
     override fun onSupportNavigateUp(): Boolean {
