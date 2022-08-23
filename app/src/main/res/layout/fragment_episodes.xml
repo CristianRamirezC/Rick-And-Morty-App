@@ -1,86 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".UI.episodes.episodes.EpisodesFragment">
 
-    <data>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginTopGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/main_screen_margin_top" />
 
-    </data>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginStartGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/main_screen_margin" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".UI.episodes.episodes.EpisodesFragment">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginEndGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/main_screen_margin" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/marginTopGuide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/main_screen_margin_top" />
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSearchBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintTop_toBottomOf="@+id/marginTopGuide" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/marginStartGuide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/main_screen_margin" />
+    <TextView
+        android:id="@+id/tvEpisodeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/episode"
+        android:textColor="@color/character_review_titles"
+        android:textSize="@dimen/characters_review_title_size"
+        app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/marginEndGuide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/main_screen_margin" />
+    <TextView
+        android:id="@+id/tvEpisodeCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/code"
+        android:textColor="@color/character_review_titles"
+        android:textSize="@dimen/characters_review_title_size"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/svSearchBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
-            app:layout_constraintTop_toBottomOf="@+id/marginTopGuide" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEpisodesRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/character_review_image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName" />
 
-        <TextView
-            android:id="@+id/tvEpisodeName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/episode"
-            android:textColor="@color/character_review_titles"
-            android:textSize="@dimen/characters_review_title_size"
-            app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
-            app:layout_constraintTop_toBottomOf="@+id/svSearchBar"
-            android:layout_marginStart="10dp"/>
-
-        <TextView
-            android:id="@+id/tvEpisodeCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@string/code"
-            android:textColor="@color/character_review_titles"
-            android:textSize="@dimen/characters_review_title_size"
-            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
-            app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvEpisodesRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
-            app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
-            app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName"
-            android:background="@color/character_review_image_background"/>
-
-        <ProgressBar
-            android:id="@+id/pbRecyclerProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
-            app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
-            app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    <ProgressBar
+        android:id="@+id/pbRecyclerProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
