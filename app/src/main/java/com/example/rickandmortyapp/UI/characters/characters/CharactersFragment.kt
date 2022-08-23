@@ -1,6 +1,7 @@
 package com.example.rickandmortyapp.UI.characters.characters
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,32 +29,43 @@ class CharactersFragment : Fragment() {
     private val viewModel: CharacterViewModel by viewModels()
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getCharacters()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding =
-            FragmentCharactersBinding.inflate(inflater, container, false)
-        viewModel.getCharacters()
-
+            FragmentCharactersBinding
+                .inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.characterResults.observe(viewLifecycleOwner) {
-            renderCharactersRecyclerView()
-        }
+        viewModel.characterResults
+            .observe(viewLifecycleOwner) {
+                renderCharactersRecyclerView()
+            }
     }
 
     private fun initRecyclerView() {
-        binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rvCharactersRecyclerView.layoutManager =
+            GridLayoutManager(requireActivity(), 2)
+
         binding.rvCharactersRecyclerView.adapter =
-            CharacterAdapter(viewModel.characterResults.value!!.responseCharacters) { character ->
+            CharacterAdapter(
+                viewModel.characterResults.value!!.responseCharacters
+            ) { character ->
                 onItemSelected(character)
             }
-        binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
+
+        binding.rvCharactersRecyclerView
+            .addItemDecoration(SpacingItemDecoration(20))
     }
 
     private fun renderCharactersRecyclerView() {
@@ -69,18 +81,24 @@ class CharactersFragment : Fragment() {
 
     private fun onItemSelected(character: Character) {
         findNavController().navigate(
-            CharactersFragmentDirections.actionCharactersFragmentToCharacterReviewFragment(
-                character.characterStatus,
-                character.characterSpecies,
-                character.characterGender,
-                character.characterOrigin,
-                character.characterName,
-                character.characterImage
-            )
+            CharactersFragmentDirections
+                .actionCharactersFragmentToCharacterReviewFragment(
+                    character.characterStatus,
+                    character.characterSpecies,
+                    character.characterGender,
+                    character.characterOrigin,
+                    character.characterName,
+                    character.characterImage
+                )
         )
     }
 
     private fun showError() {
-        Toast.makeText(requireActivity(), "An error has occurred!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            requireActivity(),
+            "An error has occurred!",
+            Toast.LENGTH_SHORT
+        )
+            .show()
     }
 }

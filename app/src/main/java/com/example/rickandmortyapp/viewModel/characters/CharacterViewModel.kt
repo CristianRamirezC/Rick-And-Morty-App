@@ -22,7 +22,9 @@ class CharacterViewModel : ViewModel() {
     fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
             val call: Response<CharactersResponse> =
-                getRetrofit().create(APICharactersService::class.java).getCharacters()
+                getRetrofit().create(APICharactersService::class.java)
+                    .getCharacters()
+
             _characterResults.postValue(
                 if (call.isSuccessful) {
                     call.body() ?: CharactersResponse(CharactersInfo())
