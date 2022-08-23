@@ -1,4 +1,6 @@
 package com.example.rickandmortyapp.viewModel.episodes
 
-class EpisodeViewModel {
+import androidx.lifecycle.ViewModel
+
+class EpisodeViewModel: ViewModel() {
 }

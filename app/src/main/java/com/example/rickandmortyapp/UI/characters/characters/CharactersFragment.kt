@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.UI.characters.characters.adapter.CharacterAdapter
 import com.example.rickandmortyapp.UI.characters.characters.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
 import com.example.rickandmortyapp.model.characters.*
+import com.example.rickandmortyapp.viewModel.characters.CharacterViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,28 +25,46 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentCharactersBinding
-    private var characterResults: CharactersResponse = CharactersResponse(
-        null, listOf()
-    )
+    private val viewModel: CharacterViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding =
             FragmentCharactersBinding.inflate(inflater, container, false)
-        getCharacters()
+        viewModel.getCharacters()
+
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.characterResults.observe(viewLifecycleOwner) {
+            renderCharactersRecyclerView()
+        }
     }
 
     private fun initRecyclerView() {
         binding.rvCharactersRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvCharactersRecyclerView.adapter =
-            CharacterAdapter(characterResults.responseCharacters) { character ->
+            CharacterAdapter(viewModel.characterResults.value!!.responseCharacters) { character ->
                 onItemSelected(character)
             }
         binding.rvCharactersRecyclerView.addItemDecoration(SpacingItemDecoration(20))
+    }
+
+    private fun renderCharactersRecyclerView() {
+        if ((viewModel.characterResults.value!!.charactersInfo!!
+                .totalCharacters == -1)
+        ) {
+            showError()
+        } else {
+            binding.pbRecyclerProgressBar.isVisible = false
+            initRecyclerView()
+        }
     }
 
     private fun onItemSelected(character: Character) {
@@ -58,30 +78,6 @@ class CharactersFragment : Fragment() {
                 character.characterImage
             )
         )
-    }
-
-    private fun getRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
-    private fun getCharacters() {
-        CoroutineScope(Dispatchers.IO).launch {
-            val call: Response<CharactersResponse> =
-                getRetrofit().create(APICharactersService::class.java).getCharacters()
-            val charactersBody = call.body()
-            activity?.runOnUiThread {
-                if (call.isSuccessful) {
-                    characterResults = charactersBody ?: CharactersResponse(null, ArrayList())
-                    binding.pbRecyclerProgressBar.isVisible = false
-                    initRecyclerView()
-                } else {
-                    showError()
-                }
-            }
-        }
     }
 
     private fun showError() {
