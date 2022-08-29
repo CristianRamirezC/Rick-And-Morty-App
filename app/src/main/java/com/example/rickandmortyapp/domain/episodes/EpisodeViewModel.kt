@@ -3,6 +3,7 @@ package com.example.rickandmortyapp.domain.episodes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.rickandmortyapp.data.RetrofitUtil
 import com.example.rickandmortyapp.data.episodes.APIEpisodesService
 import com.example.rickandmortyapp.data.episodes.EpisodesInfo
 import com.example.rickandmortyapp.data.episodes.EpisodesResponse
@@ -15,13 +16,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class EpisodeViewModel : ViewModel() {
     private var _episodesResults = MutableLiveData<EpisodesResponse>()
+    private val retrofit: RetrofitUtil = RetrofitUtil()
+
     val episodesResults: LiveData<EpisodesResponse>
         get() = _episodesResults
 
     fun getEpisodes() {
         CoroutineScope(Dispatchers.IO).launch {
             val call: Response<EpisodesResponse> =
-                getRetrofit().create(APIEpisodesService::class.java).getEpisodes()
+                retrofit.getRetrofit().create(APIEpisodesService::class.java).getEpisodes()
             _episodesResults.postValue(
                 if (call.isSuccessful) {
                     call.body() ?: EpisodesResponse()
@@ -32,12 +35,5 @@ class EpisodeViewModel : ViewModel() {
                 }
             )
         }
-    }
-
-    private fun getRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
     }
 }
