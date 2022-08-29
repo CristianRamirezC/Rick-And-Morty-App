@@ -1,7 +1,6 @@
 package com.example.rickandmortyapp.UI.characters.characters
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.UI.characters.characters.adapter.CharacterAdapter
 import com.example.rickandmortyapp.UI.characters.characters.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
-import com.example.rickandmortyapp.model.characters.*
-import com.example.rickandmortyapp.viewModel.characters.CharacterViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.rickandmortyapp.data.characters.*
+import com.example.rickandmortyapp.domain.characters.CharacterViewModel
 
 class CharactersFragment : Fragment() {
 
@@ -47,10 +40,7 @@ class CharactersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.characterResults
-            .observe(viewLifecycleOwner) {
-                renderCharactersRecyclerView()
-            }
+        setUpObservers()
     }
 
     private fun initRecyclerView() {
@@ -100,5 +90,12 @@ class CharactersFragment : Fragment() {
             Toast.LENGTH_SHORT
         )
             .show()
+    }
+
+    private fun setUpObservers() {
+        viewModel.characterResults
+            .observe(viewLifecycleOwner) {
+                renderCharactersRecyclerView()
+            }
     }
 }

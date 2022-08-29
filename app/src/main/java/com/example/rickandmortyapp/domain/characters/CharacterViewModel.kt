@@ -1,11 +1,11 @@
-package com.example.rickandmortyapp.viewModel.characters
+package com.example.rickandmortyapp.domain.characters
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortyapp.model.characters.APICharactersService
-import com.example.rickandmortyapp.model.characters.CharactersInfo
-import com.example.rickandmortyapp.model.characters.CharactersResponse
+import com.example.rickandmortyapp.data.characters.APICharactersService
+import com.example.rickandmortyapp.data.characters.CharactersInfo
+import com.example.rickandmortyapp.data.characters.CharactersResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +26,7 @@ class CharacterViewModel : ViewModel() {
                     .getCharacters()
 
             _characterResults.postValue(
+                //invertir condicion
                 if (call.isSuccessful) {
                     call.body() ?: CharactersResponse(CharactersInfo())
                 } else {

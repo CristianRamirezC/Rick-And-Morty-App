@@ -8,21 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmortyapp.UI.episodes.episodes.adapter.EpisodeAdapter
 import com.example.rickandmortyapp.databinding.FragmentEpisodesBinding
-import com.example.rickandmortyapp.model.characters.APICharactersService
-import com.example.rickandmortyapp.model.characters.CharactersResponse
-import com.example.rickandmortyapp.model.episodes.APIEpisodesService
-import com.example.rickandmortyapp.model.episodes.EpisodesResponse
-import com.example.rickandmortyapp.viewModel.episodes.EpisodeViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.rickandmortyapp.domain.episodes.EpisodeViewModel
 
 class EpisodesFragment : Fragment() {
 

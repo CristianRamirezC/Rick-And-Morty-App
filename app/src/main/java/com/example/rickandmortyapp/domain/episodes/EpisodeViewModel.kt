@@ -1,12 +1,11 @@
-package com.example.rickandmortyapp.viewModel.episodes
+package com.example.rickandmortyapp.domain.episodes
 
-import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortyapp.model.episodes.APIEpisodesService
-import com.example.rickandmortyapp.model.episodes.EpisodesInfo
-import com.example.rickandmortyapp.model.episodes.EpisodesResponse
+import com.example.rickandmortyapp.data.episodes.APIEpisodesService
+import com.example.rickandmortyapp.data.episodes.EpisodesInfo
+import com.example.rickandmortyapp.data.episodes.EpisodesResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
