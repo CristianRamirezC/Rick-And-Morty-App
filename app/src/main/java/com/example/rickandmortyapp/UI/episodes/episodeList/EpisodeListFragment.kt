@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.episodes.episodes
+package com.example.rickandmortyapp.UI.episodes.episodeList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,13 +9,13 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.episodes.episodes.adapter.EpisodeAdapter
-import com.example.rickandmortyapp.databinding.FragmentEpisodesBinding
+import com.example.rickandmortyapp.UI.episodes.episodeList.adapter.EpisodeAdapter
+import com.example.rickandmortyapp.databinding.FragmentEpisodeListBinding
 import com.example.rickandmortyapp.domain.episodes.EpisodeViewModel
 
-class EpisodesFragment : Fragment() {
+class EpisodeListFragment : Fragment() {
 
-    private lateinit var binding: FragmentEpisodesBinding
+    private lateinit var binding: FragmentEpisodeListBinding
     private val viewModel: EpisodeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class EpisodesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentEpisodesBinding
+        binding = FragmentEpisodeListBinding
             .inflate(inflater, container, false)
         return binding.root
     }

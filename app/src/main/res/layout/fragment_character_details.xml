@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.characters.characterReview.CharacterReviewFragment">
+    tools:context=".UI.characters.characterDetails.CharacterDetailsFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

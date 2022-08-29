@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.characters.characters
+package com.example.rickandmortyapp.UI.characters.characterList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,15 +10,15 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.characters.characters.adapter.CharacterAdapter
-import com.example.rickandmortyapp.UI.characters.characters.adapter.util.SpacingItemDecoration
-import com.example.rickandmortyapp.databinding.FragmentCharactersBinding
+import com.example.rickandmortyapp.UI.characters.characterList.adapter.CharacterAdapter
+import com.example.rickandmortyapp.UI.characters.characterList.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.data.characters.*
+import com.example.rickandmortyapp.databinding.FragmentCharacterListBinding
 import com.example.rickandmortyapp.domain.characters.CharacterViewModel
 
-class CharactersFragment : Fragment() {
+class CharacterListFragment : Fragment() {
 
-    private lateinit var binding: FragmentCharactersBinding
+    private lateinit var binding: FragmentCharacterListBinding
     private val viewModel: CharacterViewModel by viewModels()
 
 
@@ -33,7 +33,7 @@ class CharactersFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding =
-            FragmentCharactersBinding
+            FragmentCharacterListBinding
                 .inflate(inflater, container, false)
         return binding.root
     }
@@ -71,7 +71,7 @@ class CharactersFragment : Fragment() {
 
     private fun onItemSelected(character: Character) {
         findNavController().navigate(
-            CharactersFragmentDirections
+            CharacterListFragmentDirections
                 .actionCharactersFragmentToCharacterReviewFragment(
                     character.characterStatus,
                     character.characterSpecies,

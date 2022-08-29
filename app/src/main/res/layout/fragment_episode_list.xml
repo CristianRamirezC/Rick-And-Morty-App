@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".UI.characters.characters.CharactersFragment">
+    tools:context=".UI.episodes.episodeList.EpisodeListFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/marginTopGuide"
@@ -29,22 +29,45 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/main_screen_margin" />
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/svSearchBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
-        app:layout_constraintTop_toBottomOf="@+id/marginTopGuide"
-        app:queryHint="Character name" />
+        app:layout_constraintTop_toBottomOf="@+id/marginTopGuide" />
+
+    <TextView
+        android:id="@+id/tvEpisodeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/episode"
+        android:textColor="@color/character_review_titles"
+        android:textSize="@dimen/characters_review_title_size"
+        app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
+        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
+
+    <TextView
+        android:id="@+id/tvEpisodeCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/code"
+        android:textColor="@color/character_review_titles"
+        android:textSize="@dimen/characters_review_title_size"
+        app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
+        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCharactersRecyclerView"
+        android:id="@+id/rvEpisodesRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/character_review_image_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
         app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
-        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName" />
 
     <ProgressBar
         android:id="@+id/pbRecyclerProgressBar"
@@ -53,6 +76,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/marginEndGuide"
         app:layout_constraintStart_toEndOf="@+id/marginStartGuide"
-        app:layout_constraintTop_toBottomOf="@+id/svSearchBar" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
