@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.episodes.episodeList
+package com.example.rickandmortyapp.ui.episodes.episodeList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.episodes.episodeList.adapter.EpisodeAdapter
+import com.example.rickandmortyapp.ui.episodes.episodeList.adapter.EpisodeAdapter
 import com.example.rickandmortyapp.databinding.FragmentEpisodeListBinding
 import com.example.rickandmortyapp.domain.episodes.EpisodeViewModel
 

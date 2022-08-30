@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.episodes.episodeList.adapter
+package com.example.rickandmortyapp.ui.episodes.episodeList.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

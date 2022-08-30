@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.UI.characters.characterList
+package com.example.rickandmortyapp.ui.characters.characterList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +10,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.rickandmortyapp.UI.characters.characterList.adapter.CharacterAdapter
-import com.example.rickandmortyapp.UI.characters.characterList.adapter.util.SpacingItemDecoration
+import com.example.rickandmortyapp.ui.characters.characterList.adapter.CharacterAdapter
+import com.example.rickandmortyapp.ui.characters.characterList.adapter.util.SpacingItemDecoration
 import com.example.rickandmortyapp.data.characters.*
 import com.example.rickandmortyapp.databinding.FragmentCharacterListBinding
 import com.example.rickandmortyapp.domain.characters.CharacterViewModel
@@ -43,14 +43,12 @@ class CharacterListFragment : Fragment() {
         setUpObservers()
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(characterList: List<Character>) {
         binding.rvCharactersRecyclerView.layoutManager =
             GridLayoutManager(requireActivity(), 2)
 
         binding.rvCharactersRecyclerView.adapter =
-            CharacterAdapter(
-                viewModel.characterResults.value!!.responseCharacters
-            ) { character ->
+            CharacterAdapter(characterList) { character ->
                 onItemSelected(character)
             }
 
@@ -58,14 +56,15 @@ class CharacterListFragment : Fragment() {
             .addItemDecoration(SpacingItemDecoration(20))
     }
 
-    private fun renderCharactersRecyclerView() {
-        if ((viewModel.characterResults.value!!.charactersInfo!!
-                .totalCharacters == -1)
-        ) {
+    private fun renderCharactersRecyclerView(
+        apiCallError: Boolean,
+        characterAPIResponse: CharactersResponse
+    ) {
+        if (apiCallError) {
             showError()
         } else {
             binding.pbRecyclerProgressBar.isVisible = false
-            initRecyclerView()
+            initRecyclerView(characterAPIResponse.responseCharacters)
         }
     }
 
@@ -87,15 +86,26 @@ class CharacterListFragment : Fragment() {
         Toast.makeText(
             requireActivity(),
             "An error has occurred!",
-            Toast.LENGTH_SHORT
+            Toast.LENGTH_LONG
         )
             .show()
     }
 
     private fun setUpObservers() {
         viewModel.characterResults
-            .observe(viewLifecycleOwner) {
-                renderCharactersRecyclerView()
+            .observe(viewLifecycleOwner) { characterAPIResponse ->
+                renderCharactersRecyclerView(
+                    viewModel.apiCallResponseError.value ?: true,
+                    characterAPIResponse
+                )
+            }
+
+        viewModel.apiCallResponseError
+            .observe(viewLifecycleOwner) { apiCallError ->
+                renderCharactersRecyclerView(
+                    apiCallError,
+                    viewModel.characterResults.value ?: CharactersResponse()
+                )
             }
     }
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.example.rickandmortyapp.UI.characters.characterList.CharacterListFragment"
+        android:name="com.example.rickandmortyapp.ui.characters.characterList.CharacterListFragment"
         android:label="@string/characters"
         tools:layout="@layout/fragment_character_list">
         <action
@@ -16,17 +16,17 @@
     </fragment>
     <fragment
         android:id="@+id/episodesFragment"
-        android:name="com.example.rickandmortyapp.UI.episodes.episodeList.EpisodeListFragment"
+        android:name="com.example.rickandmortyapp.ui.episodes.episodeList.EpisodeListFragment"
         android:label="@string/episodes"
         tools:layout="@layout/fragment_episode_list" />
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.example.rickandmortyapp.UI.blank.BlankFragment"
+        android:name="com.example.rickandmortyapp.ui.blank.BlankFragment"
         android:label="@string/blank_fragment"
         tools:layout="@layout/fragment_blank" />
     <fragment
         android:id="@+id/characterReviewFragment"
-        android:name="com.example.rickandmortyapp.UI.characters.characterDetails.CharacterDetailsFragment"
+        android:name="com.example.rickandmortyapp.ui.characters.characterDetails.CharacterDetailsFragment"
         android:label="@string/character_details"
         tools:layout="@layout/fragment_character_details">
         <argument
