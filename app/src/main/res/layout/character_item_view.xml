@@ -3,9 +3,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
+    android:layout_width="@dimen/character_item_view_card_width"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="@dimen/character_item_view_card_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,10 +28,10 @@
 
             <ImageView
                 android:id="@+id/ivCharacterStatus"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/character_item_view_status_dimensions"
+                android:layout_height="@dimen/character_item_view_status_dimensions"
                 android:layout_gravity="top|end"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/character_item_view_status_margins"
                 android:background="@drawable/character_status_circle"
                 android:backgroundTint="@color/teal_700"
                 android:contentDescription="@string/character_status" />
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textSize="17sp"
+            android:textSize="@dimen/character_item_view_name_size"
             android:textStyle="italic"
             android:typeface="monospace"
             app:layout_constraintBottom_toBottomOf="parent"
