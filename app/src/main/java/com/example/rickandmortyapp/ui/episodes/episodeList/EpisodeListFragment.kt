@@ -77,9 +77,13 @@ class EpisodeListFragment : Fragment() {
         if (apiCallError) {
             showError()
         } else {
-            binding.pbRecyclerProgressBar.isVisible = false
+            setLoadingVisibility(false)
             initRecyclerView(episodeAPIResponse.episodesList)
         }
+    }
+
+    private fun setLoadingVisibility(enabled: Boolean) {
+        binding.pbRecyclerProgressBar.isVisible = enabled
     }
 
 

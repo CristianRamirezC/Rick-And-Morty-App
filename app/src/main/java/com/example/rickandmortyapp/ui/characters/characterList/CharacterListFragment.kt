@@ -63,9 +63,13 @@ class CharacterListFragment : Fragment() {
         if (apiCallError) {
             showError()
         } else {
-            binding.pbRecyclerProgressBar.isVisible = false
+            setLoadingVisibility(false)
             initRecyclerView(characterAPIResponse.charactersList)
         }
+    }
+
+    private fun setLoadingVisibility(enabled: Boolean) {
+        binding.pbRecyclerProgressBar.isVisible = enabled
     }
 
     private fun onItemSelected(character: Character) {
