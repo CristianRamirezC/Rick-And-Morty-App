@@ -18,22 +18,26 @@ class EpisodeViewModel : ViewModel() {
     private var _episodesResults = MutableLiveData<EpisodesResponse>()
     private val retrofit: RetrofitUtil = RetrofitUtil()
 
+    private val _apiCallResponseError = MutableLiveData<Boolean>()
+    val apiCallResponseError: LiveData<Boolean>
+        get() = _apiCallResponseError
+
+
     val episodesResults: LiveData<EpisodesResponse>
         get() = _episodesResults
 
     fun getEpisodes() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call: Response<EpisodesResponse> =
+            val apiCall: Response<EpisodesResponse> =
                 retrofit.getRetrofit().create(APIEpisodesService::class.java).getEpisodes()
-            _episodesResults.postValue(
-                if (call.isSuccessful) {
-                    call.body() ?: EpisodesResponse()
-                } else {
-                    EpisodesResponse(
-                        EpisodesInfo(totalEpisodes = -1)
-                    )
-                }
-            )
+            if (apiCall.isSuccessful) {
+                _apiCallResponseError.postValue(false)
+                _episodesResults.postValue(
+                    apiCall.body() ?: EpisodesResponse()
+                )
+            } else {
+                _apiCallResponseError.postValue(true)
+            }
         }
     }
 }

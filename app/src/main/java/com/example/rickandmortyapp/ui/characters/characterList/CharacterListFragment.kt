@@ -64,7 +64,7 @@ class CharacterListFragment : Fragment() {
             showError()
         } else {
             binding.pbRecyclerProgressBar.isVisible = false
-            initRecyclerView(characterAPIResponse.responseCharacters)
+            initRecyclerView(characterAPIResponse.charactersList)
         }
     }
 
@@ -104,7 +104,8 @@ class CharacterListFragment : Fragment() {
             .observe(viewLifecycleOwner) { apiCallError ->
                 renderCharactersRecyclerView(
                     apiCallError,
-                    viewModel.characterResults.value ?: CharactersResponse()
+                    viewModel.characterResults.value
+                        ?: CharactersResponse()
                 )
             }
     }

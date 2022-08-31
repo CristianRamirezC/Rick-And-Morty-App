@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.rickandmortyapp.data.episodes.Episode
+import com.example.rickandmortyapp.data.episodes.EpisodesResponse
 import com.example.rickandmortyapp.ui.episodes.episodeList.adapter.EpisodeAdapter
 import com.example.rickandmortyapp.databinding.FragmentEpisodeListBinding
 import com.example.rickandmortyapp.domain.episodes.EpisodeViewModel
@@ -35,37 +37,48 @@ class EpisodeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpObservers()
+    }
+
+    private fun setUpObservers() {
         viewModel
             .episodesResults
-            .observe(viewLifecycleOwner) {
-                renderEpisodesRecyclerView()
+            .observe(viewLifecycleOwner) { episodeAPIResponse ->
+                renderEpisodesRecyclerView(
+                    viewModel.apiCallResponseError.value ?: true,
+                    episodeAPIResponse
+                )
+            }
+
+        viewModel
+            .apiCallResponseError
+            .observe(viewLifecycleOwner) { apiCallError ->
+                renderEpisodesRecyclerView(
+                    apiCallError,
+                    viewModel.episodesResults.value
+                        ?: EpisodesResponse()
+                )
+
             }
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(episodeList: List<Episode>) {
         binding.rvEpisodesRecyclerView.layoutManager =
             GridLayoutManager(requireActivity(), 1)
 
         binding.rvEpisodesRecyclerView.adapter =
-            EpisodeAdapter(
-                viewModel
-                    .episodesResults
-                    .value!!
-                    .episodesList
-            )
+            EpisodeAdapter(episodeList)
     }
 
-    private fun renderEpisodesRecyclerView() {
-        if (viewModel
-                .episodesResults
-                .value!!
-                .episodesInfo!!
-                .totalEpisodes == -1
-        ) {
+    private fun renderEpisodesRecyclerView(
+        apiCallError: Boolean,
+        episodeAPIResponse: EpisodesResponse
+    ) {
+        if (apiCallError) {
             showError()
         } else {
             binding.pbRecyclerProgressBar.isVisible = false
-            initRecyclerView()
+            initRecyclerView(episodeAPIResponse.episodesList)
         }
     }
 
